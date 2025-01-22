@@ -1,1 +1,25 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+    <script src="https://dundermifflin.sfdctest.test1.my.pc-rnd.salesforce.com/lightning/lightning.out.js"></script>
+    <script>
+        $Lightning.use("runtime_appointmentbooking:lightningOutGuest", // name of the Lightning app
+        function() {
+        $Lightning.createComponent(
+        "lightning:flow", // top-level component of your app
+        { }, // attributes to set on the component when created
+        "lightningLocator", // the DOM location to insert the component
+        function(cmp) {
+        console.log(‘Hi from callback’);// callback when component is created and active on the page
+        cmp.startFlow('Clone_Inbound_New_Guest_Appointment');
+        }
+        );
+        }, 'https://dundermifflin.sfdctest.test1.my.pc-rnd.site.com/community/s/book-appointment' // Community endpoint
+        );
+    </script>
+    <div id="lightningLocator">
+        <p>Lightning Component mentioned in the Script is invoked from here</p>
+    </div>
+</body>
+</html>
